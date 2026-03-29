@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenerAI - Database Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="theme-engine.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><img src="thumbnail.png" alt="GenerAI Logo" class="header-logo"> GENERAI DATABASE</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="editor-link" title="Torna alla Chat">
+                <i class="fas fa-comment-alt"></i> Chat Hub
+            </a>
+            <a href="editor.html" class="editor-link" title="Apri l'IDE">
+                <i class="fas fa-code"></i> IDE Editor
+            </a>
+            <div class="status">
+                <div class="status-dot"></div>
+                <span id="model-status">Connessione...</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="db-container">
+        <!-- Initial Upload View -->
+        <div id="upload-view">
+            <div class="drop-zone" id="drop-zone">
+                <i class="fas fa-file-excel"></i>
+                <h3>Trascina qui il tuo Database</h3>
+                <p style="color: var(--text-muted);">Supporta .xlsx, .xls, .csv, .json</p>
+                <input type="file" id="db-upload" hidden accept=".xlsx, .xls, .csv, .json">
+                <button class="editor-link" style="margin-top: 1rem; cursor: pointer;" onclick="document.getElementById('db-upload').click()">
+                    Sfoglia File
+                </button>
+            </div>
+        </div>
+
+        <!-- Data Display View (Hidden initially) -->
+        <div id="data-view" style="display: none; height: 100%;">
+            <div class="db-layout">
+                <div class="db-main">
+                    <div class="data-stats-grid">
+                        <div class="stat-card">
+                            <span class="label">Righe Totali</span>
+                            <span class="value" id="stat-rows">-</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="label">Colonne</span>
+                            <span class="value" id="stat-cols">-</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="label">File Attivo</span>
+                            <span class="value" id="stat-filename" style="font-size: 1rem; overflow: hidden; text-overflow: ellipsis;">-</span>
+                        </div>
+                        <button class="editor-link" onclick="location.reload()" style="height: fit-content; align-self: center;">
+                            <i class="fas fa-sync"></i> Carica Altro
+                        </button>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="preview-table" id="preview-table">
+                            <thead>
+                                <tr id="table-header"></tr>
+                            </thead>
+                            <tbody id="table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- AI Analysis Sidebar -->
+                <aside class="db-ai-sidebar">
+                    <div class="ai-sidebar-header">
+                        <i class="fas fa-robot"></i> DATABASE ASSISTANT
+                    </div>
+                    <div class="ai-sidebar-messages" id="ai-messages">
+                        <div class="message ai-message" style="font-size: 0.8rem;">
+                            <p>Ho analizzato il file. Puoi chiedermi statistiche, medie o riassunti sui dati caricati.</p>
+                        </div>
+                    </div>
+                    <div class="ai-sidebar-input">
+                        <input type="text" id="ai-input" placeholder="Chiedi analisi sui dati...">
+                        <button class="action-btn send-btn" id="ai-send" style="width: 32px; height: 32px;">
+                            <i class="fas fa-paper-plane" style="font-size: 0.7rem;"></i>
+                        </button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <script src="database.js"></script>
+</body>
+</html>

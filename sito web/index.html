@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download AI 1.0</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1220;
+      --card: #121a2b;
+      --text: #f3f6ff;
+      --muted: #9fb1d4;
+      --accent: #4f9cff;
+      --accent-hover: #2f86f8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at top, #1a2742 0%, var(--bg) 50%);
+      color: var(--text);
+      padding: 24px;
+    }
+
+    .card {
+      width: min(560px, 100%);
+      background: linear-gradient(180deg, #17233a 0%, var(--card) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 700;
+      background: var(--accent);
+      border: none;
+      border-radius: 12px;
+      padding: 14px 22px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .download-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .alt-link {
+      margin-top: 16px;
+      display: block;
+      color: #b7c8ea;
+      font-size: 0.95rem;
+    }
+
+    .alt-link a {
+      color: #cfe0ff;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>AI Versione 1.0</h1>
+    <p>Scarica subito la release 1.0 della tua AI dal link Google Drive.</p>
+
+    <a
+      class="download-btn"
+      href="https://drive.google.com/uc?export=download&id=1Xg2Dd1qHy0Iz06Wjwig9PrMlYOkBkw9h"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Scarica AI 1.0
+    </a>
+
+    <small class="alt-link">
+      Se il download non parte, apri il file su Drive:
+      <a href="https://drive.google.com/file/d/1Xg2Dd1qHy0Iz06Wjwig9PrMlYOkBkw9h/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Apri su Google Drive</a>
+    </small>
+  </main>
+</body>
+</html>

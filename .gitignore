@@ -1,0 +1,9 @@
+# Modelli locali (troppo grandi per GitHub; vanno nella cartella del progetto a mano)
+*.gguf
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.log

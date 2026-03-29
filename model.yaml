@@ -1,0 +1,55 @@
+# model.yaml is an open standard for defining cross-platform, composable AI models
+# Learn more at https://modelyaml.org
+model: qwen/qwen3.5-9b
+base:
+  - key: lmstudio-community/qwen3.5-9b-gguf
+    sources:
+      - type: huggingface
+        user: lmstudio-community
+        repo: Qwen3.5-9B-GGUF
+metadataOverrides:
+  domain: llm
+  architectures:
+    - qwen35
+  compatibilityTypes:
+    - gguf
+  paramsStrings:
+    - 9B
+  minMemoryUsageBytes: 7000000000
+  contextLengths:
+    - 262144
+  vision: true
+  reasoning: true
+  trainedForToolUse: true
+config:
+  operation:
+    fields:
+      - key: llm.prediction.temperature
+        value: 1.0
+      - key: llm.prediction.topKSampling
+        value: 20
+      - key: llm.prediction.topPSampling
+        value:
+          checked: true
+          value: 0.95
+      - key: llm.prediction.minPSampling
+        value:
+          checked: false
+          value: 0
+      - key: llm.prediction.repeatPenalty
+        value:
+          checked: false
+          value: 1.0
+      - key: llm.prediction.llama.presencePenalty
+        value:
+          checked: true
+          value: 1.5
+customFields:
+  - key: enableThinking
+    displayName: Enable Thinking
+    description: Controls whether the model will think before replying
+    type: boolean
+    defaultValue: true
+    effects:
+      - type: setJinjaVariable
+        variable: enable_thinking

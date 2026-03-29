@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenerAI Premium - AI Hub</title>
+    <!-- Social Metadata -->
+    <meta name="description" content="GenerAI Studio - L'Hub Premium per l'IA locale e lo sviluppo rapido.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="theme-engine.js" defer></script>
+    <style>
+        /* Specific tweaks for home page if needed */
+        #chat-container {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><img src="thumbnail.png" alt="GenerAI Logo" class="header-logo"> GENERAI STUDIO</h1>
+        </div>
+            <a href="#" class="editor-link" onclick="toggleSettingsModal(true)" title="Impostazioni">
+                <i class="fas fa-cog"></i> Impostazioni
+            </a>
+            <a href="editor.html" class="editor-link" title="Apri l'ambiente di sviluppo">
+                <i class="fas fa-code"></i> IDE Editor
+            </a>
+            <a href="database.html" class="editor-link" title="Analizza database e file dati">
+                <i class="fas fa-database"></i> Database
+            </a>
+            <div class="status" title="Stato del server locale LM Studio (Porta 1234)">
+                <div class="status-dot"></div>
+                <span id="model-status">Connessione...</span>
+                <i class="fas fa-question-circle" style="font-size: 0.7rem; opacity: 0.5; margin-left: 5px; cursor: help;"></i>
+            </div>
+        </div>
+    </header>
+
+    <main id="chat-container">
+        <!-- AI initial message -->
+        <div class="message ai-message">
+            <p><strong><i class="fas fa-sparkles"></i> Benvenuto in GenerAI Studio Premium</strong></p>
+            <p>Sono pronto ad assisterti con analisi di codice avanzata, generazione di contenuti e visione artificiale multimodale. Tutto gira localmente sul tuo hardware.</p>
+            <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-muted);">
+                Consiglio: Incolla un'immagine o apri l'IDE per iniziare un progetto.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <div id="preview-container"></div>
+        <div class="input-container glass-effect">
+            <label for="image-upload" class="action-btn" title="Allega Immagine (o incolla)">
+                <i class="fas fa-paperclip"></i>
+            </label>
+            <input type="file" id="image-upload" hidden accept="image/*">
+            
+            <input type="text" id="chat-input" placeholder="Chiedi qualsiasi cosa a GenerAI..." autocomplete="off">
+            
+            <div class="think-toggle-container" title="Ragionamento sempre attivo" style="opacity:0.5; pointer-events:none;">
+                <span>Pensa</span>
+                <label class="switch">
+                    <input type="checkbox" id="think-toggle" checked disabled>
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <button class="action-btn send-btn" id="send-btn" title="Invia messaggio">
+                <i class="fas fa-paper-plane" style="font-size: 0.9rem;"></i>
+            </button>
+        </div>
+        <p style="text-align: center; font-size: 0.65rem; color: var(--text-muted); margin-top: 1rem; letter-spacing: 0.05em;">
+            POWERED BY GENERAI & LOCAL SERVER (1234)
+        </p>
+    </footer>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settings-modal-overlay">
+        <div class="settings-modal">
+            <div class="modal-header">
+                <h2>Estetica</h2>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Personalizza il look del tuo ambiente GenerAI.</p>
+            
+            <div class="theme-grid">
+                <div class="theme-tile" data-theme="amethyst" onclick="applyTheme('amethyst')">
+                    <div class="color-preview" style="background: linear-gradient(135deg, #8b5cf6, #030712);"></div>
+                    <span>Amethyst</span>
+                </div>
+                <div class="theme-tile" data-theme="emerald" onclick="applyTheme('emerald')">
+                    <div class="color-preview" style="background: linear-gradient(135deg, #10b981, #020617);"></div>
+                    <span>Emerald</span>
+                </div>
+                <div class="theme-tile" data-theme="sapphire" onclick="applyTheme('sapphire')">
+                    <div class="color-preview" style="background: linear-gradient(135deg, #3b82f6, #0f172a);"></div>
+                    <span>Sapphire</span>
+                </div>
+                <div class="theme-tile" data-theme="crimson" onclick="applyTheme('crimson')">
+                    <div class="color-preview" style="background: linear-gradient(135deg, #f43f5e, #111827);"></div>
+                    <span>Crimson</span>
+                </div>
+                <div class="theme-tile" data-theme="ghost" onclick="applyTheme('ghost')">
+                    <div class="color-preview" style="background: linear-gradient(135deg, #ffffff, #000000);"></div>
+                    <span>Ghost</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
