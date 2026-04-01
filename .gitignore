@@ -1,5 +1,9 @@
-# Modelli locali (troppo grandi per GitHub; vanno nella cartella del progetto a mano)
+# Modelli locali (troppo grandi per GitHub)
 *.gguf
+
+# Cartelle locali (non servono su GitHub)
+installer/
+sito web/
 
 __pycache__/
 *.py[cod]
